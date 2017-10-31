@@ -27,8 +27,8 @@ ansible-playbook run-demo.yml
 ```
 
 ```
-cumulus@oob-mgmt-server:~/cldemo-radius$ ssh testuser@leaf01
-testuser@leaf01's password: cn321
+cumulus@oob-mgmt-server:~$ ssh testuser@leaf01
+testuser@leaf01's password:
 
 Welcome to Cumulus VX (TM)
 
@@ -46,16 +46,20 @@ testuser@leaf01:~$
 Look at logs:
 ```
 testuser@leaf01:~$ sudo tail -f /var/log/syslog
-2017-09-05T22:29:38.173712+00:00 leaf01 sshd[3029]: Accepted password for testuser from 192.168.0.254 port 40259 ssh2
-2017-09-05T22:29:38.208347+00:00 leaf01 sshd[3029]: pam_unix(sshd:session): session opened for user testuser by (uid=0)
+2017-10-31T17:05:56.313150+00:00 leaf01 sshd[4326]: Accepted password for testuser from 192.168.0.254 port 59812 ssh2
+2017-10-31T17:05:56.336837+00:00 leaf01 sshd[4326]: pam_unix(sshd:session): session opened for user testuser by (uid=0)
 ```
 
 ```
 testuser@leaf01:~$ groups
-tacacs
+radius_users
+```
+```
+testuser@leaf01:~$ whoami
+testuser
 ```
 
 ```
-testuser@leaf01:~$ sudo getent passwd testuser
-testuser:x:1017:1002:TACACS+ mapped user at privilege level 15,,,:/home/tacacs15:/bin/bash
+testuser@leaf01:~$ getent passwd testuser
+testuser:x:1002:1002:testuser mapped user:/home/testuser:/bin/bash
 ```

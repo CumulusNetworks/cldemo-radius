@@ -9,4 +9,4 @@
 - name: apply user configuration
   copy: src=users dest=/etc/freeradius/users
   notify:
-    - restart radius
+    - restart freeradius

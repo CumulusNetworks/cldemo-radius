@@ -1,0 +1,8 @@
+- name: install radius client - libnss-mapuser
+  apt: name=libnss-mapuser state=installed update_cache=yes
+
+- name: install radius client - libpam-radius-auth
+  apt: name=libpam-radius-auth state=installed update_cache=yes
+
+- name: apply radius configuration
+  copy: src=pam_radius_auth.conf dest=/etc/pam_radius_auth.conf

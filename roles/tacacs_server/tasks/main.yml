@@ -1,0 +1,12 @@
+- name: install freeradius service
+  apt: name=freeradius state=installed update_cache=yes
+
+- name: apply radius client configuration
+  copy: src=client.conf dest=/etc/freeradius/clients.conf
+  notify:
+    - restart radius
+
+- name: apply user configuration
+  copy: src=users dest=/etc/freeradius/users
+  notify:
+    - restart radius

@@ -1,0 +1,2 @@
+- name: restart freeradius
+  service: name=freeradius state=restarted

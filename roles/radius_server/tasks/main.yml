@@ -2,7 +2,7 @@
   apt: name=freeradius state=installed update_cache=yes
 
 - name: apply radius client configuration
-  copy: src=client.conf dest=/etc/freeradius/clients.conf
+  copy: src=clients.conf dest=/etc/freeradius/clients.conf
   notify:
     - restart radius
 

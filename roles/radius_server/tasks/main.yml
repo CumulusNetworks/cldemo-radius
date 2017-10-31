@@ -4,7 +4,7 @@
 - name: apply radius client configuration
   copy: src=clients.conf dest=/etc/freeradius/clients.conf
   notify:
-    - restart radius
+    - restart freeradius
 
 - name: apply user configuration
   copy: src=users dest=/etc/freeradius/users
